@@ -9,16 +9,10 @@
 ## Way to do
 
 - Make a custom Form.Item component. We just use it, and give props like a normal Form.Items.
-- Using Space.Compact (antd) to  compact a tel input field and  a country selector from react-international-phone
-- Using google-libphonenumber  for validation and transform to E164 format
+- Using Space.Compact (antd) to compact a tel input field and a country selector from react-international-phone
+- Using google-libphonenumber for validation and transform to E164 format
 
 ```jsx
-import { Button, Form } from 'antd'
-import { useForm } from 'antd/es/form/Form'
-import './App.css'
-import { PhoneInputField } from './phone-input'
-import { transformToE164format } from './phone-input/util'
-
 function App() {
   const [form] = useForm()
 
