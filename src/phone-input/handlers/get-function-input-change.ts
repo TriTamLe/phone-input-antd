@@ -11,5 +11,5 @@ export const getFunctionOnInputChange =
   ({ country }) => {
     if (!value) return
     if (value[0] !== '+') return
-    form.setFieldValue(fieldToReset, country)
+    form.setFieldValue(fieldToReset, country.iso2)
   }

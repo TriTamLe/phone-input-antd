@@ -8,6 +8,7 @@ export const CountryCodeSelector = ({
   countryFieldName,
   selectProps,
   initialValue,
+  hideCountryName = false,
 }: TCountryCodeSelector) => {
   return (
     <Form.Item name={[name, countryFieldName]} initialValue={initialValue}>
@@ -22,7 +23,7 @@ export const CountryCodeSelector = ({
               <span className='flex flex-row gap-2 items-center'>
                 <FlagImage iso2={iso2} size={30} />
                 <span>{`${DIAL_CODE_PREFIX}${dialCode}`}</span>
-                <span>{countryName}</span>
+                {!hideCountryName && <span>{countryName}</span>}
               </span>
             </Select.Option>
           )

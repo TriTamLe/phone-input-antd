@@ -25,6 +25,7 @@ function App() {
         countryFieldName='country-code'
         phoneFieldName='number'
         required
+        hideCountryName
       />
       <Button type='primary' htmlType='submit'>
         Submit

@@ -24,6 +24,7 @@ export type TPhoneInputProps = {
   phoneFieldName?: string
   requiredErrorMessage?: string
   invalidErrorMessage?: string
+  hideCountryName?: boolean
   selectProps?: SelectProps
   inputProps?: InputProps
 } & FormItemProps
@@ -42,4 +43,5 @@ export type TCountryCodeSelector = {
   countryFieldName: string
   selectProps?: SelectProps
   initialValue?: CountryIso2
+  hideCountryName?: boolean
 }

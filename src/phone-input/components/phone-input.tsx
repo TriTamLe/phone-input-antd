@@ -18,6 +18,7 @@ export const PhoneInputField = ({
   phoneFieldName = DEFAULT_PHONE_FIELD_NAME,
   requiredErrorMessage = PHONE_REQUIRED_MSG,
   invalidErrorMessage = PHONE_INVALID_MSG,
+  hideCountryName = false,
   selectProps,
   inputProps,
   required,
@@ -40,6 +41,7 @@ export const PhoneInputField = ({
           countryFieldName={countryFieldName}
           selectProps={selectProps}
           initialValue={initialCountryISO2}
+          hideCountryName={hideCountryName}
         />
         <Form.Item name={[name, phoneFieldName]} rules={phoneRules}>
           <Input ref={inputRef} type='tel' size='large' {...inputProps} />
