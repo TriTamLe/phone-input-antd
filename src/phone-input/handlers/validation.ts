@@ -25,7 +25,7 @@ export const requiredRule = (msg: string, condition: boolean = true): TRule => {
 export const phoneValidRule = (country: TCountryIso2, msg: string): TRule => {
   return {
     validator: async (_: TRuleObject, value: TStoreValue) => {
-      if (!value) return Promise.resolve()
+      if (!hasValue(value)) return Promise.resolve()
       if (!PHONE_NUMBER_SIMPLE_REGEX.test(value))
         return Promise.reject(new Error(msg))
       const number = phoneUtil.parseAndKeepRawInput(value, country.toUpperCase())

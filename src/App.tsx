@@ -1,7 +1,8 @@
 import { Button, Form } from 'antd'
 import { useForm } from 'antd/es/form/Form'
 import './App.css'
-import { PhoneInputField, transformToE164format } from './phone-input'
+import {PhoneInputField} from "./phone-input/components";
+import {transformToE164format} from "./phone-input/handlers";
 
 function App() {
   const [form] = useForm()
