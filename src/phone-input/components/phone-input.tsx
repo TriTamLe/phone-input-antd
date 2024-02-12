@@ -43,7 +43,10 @@ export const PhoneInputField = ({
           initialValue={initialCountryISO2}
           hideCountryName={hideCountryName}
         />
-        <Form.Item name={[name, phoneFieldName]} rules={phoneRules}>
+        <Form.Item
+          name={[name, phoneFieldName]}
+          rules={phoneRules}
+          className='m-0'>
           <Input ref={inputRef} type='tel' size='large' {...inputProps} />
         </Form.Item>
       </Space.Compact>

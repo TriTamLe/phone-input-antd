@@ -1,6 +1,6 @@
 import { Form, Select } from 'antd'
 import { FlagImage, defaultCountries } from 'react-international-phone'
-import { DIAL_CODE_PREFIX } from '..'
+import { DIAL_CODE_PREFIX } from '../constants'
 import { TCountryCodeSelector, TCountryIso2 } from '../types'
 
 export const CountryCodeSelector = ({
@@ -11,7 +11,10 @@ export const CountryCodeSelector = ({
   hideCountryName = false,
 }: TCountryCodeSelector) => {
   return (
-    <Form.Item name={[name, countryFieldName]} initialValue={initialValue}>
+    <Form.Item
+      name={[name, countryFieldName]}
+      initialValue={initialValue}
+      className='m-0'>
       <Select size='large' {...selectProps}>
         {defaultCountries.map((countryData) => {
           const countryName = countryData[0]

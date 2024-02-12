@@ -1,4 +1,5 @@
 import { PhoneNumberUtil } from 'google-libphonenumber'
+import { PHONE_NUMBER_SIMPLE_REGEX } from '../constants'
 import { TCountryIso2, TRule, TRuleObject, TStoreValue } from '../types'
 
 const phoneUtil = PhoneNumberUtil.getInstance()
@@ -21,12 +22,17 @@ export const requiredRule = (msg: string, condition: boolean = true): TRule => {
   }
 }
 
-export const phoneValidRule = (coutry: TCountryIso2, msg: string): TRule => {
+export const phoneValidRule = (country: TCountryIso2, msg: string): TRule => {
   return {
     validator: async (_: TRuleObject, value: TStoreValue) => {
       if (!value) return Promise.resolve()
-      const number = phoneUtil.parseAndKeepRawInput(value, coutry.toUpperCase())
-      if (!phoneUtil.isValidNumber(number))
+      if (!PHONE_NUMBER_SIMPLE_REGEX.test(value))
+        return Promise.reject(new Error(msg))
+      const number = phoneUtil.parseAndKeepRawInput(value, country.toUpperCase())
+      if (
+        !phoneUtil.isValidNumber(number) ||
+        !phoneUtil.isPossibleNumber(number)
+      )
         return Promise.reject(new Error(msg))
       return Promise.resolve()
     },
