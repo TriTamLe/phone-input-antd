@@ -1,3 +1,4 @@
-export * from './get-function-input-change'
-export * from './transform'
-export * from './validation'
+export * from './merge-namepath';
+export * from './on-input-change-fn';
+export * from './transform';
+export * from './validation';
